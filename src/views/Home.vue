@@ -1,7 +1,7 @@
 <template>
   <div class="home">
 
-hi
+hi33
   </div>
 </template>
 

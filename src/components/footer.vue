@@ -1,6 +1,6 @@
 <template>
 <footer>
-  <p>wechat:awttt1</p>
+  <div>wechat:awttt1</div>
 </footer>
 </template>
 

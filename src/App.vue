@@ -12,6 +12,7 @@
 <script>
   import Header from './components/header'
   import Footer from './components/footer'
+
   export default {
     name:'App',
     components:{
@@ -23,29 +24,23 @@
 
 
 <style lang="less">
-#app {
-font-family: 'Avenir',Helvetica,Arial,sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-#header {
-  border: 1px solid red;
-  display: flex;
-  flex-direction: column;
-}
-#footer{
-  border: 1px solid purple;
-
-}
-  #main{
-    flex-grow: 1;
-    overflow: auto
+  body{
+    margin: 0;
+    padding: 0;
+    border: 0;
   }
+
+  #app {
+    font-family: 'Avenir',Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+
 </style>
