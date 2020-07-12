@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 import Login from '../pages/Login'
 import Create from '../pages/Create'
 import Detail from '../pages/Detail'
@@ -17,14 +16,9 @@ Vue.use(VueRouter)
   const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    component: Index
   },
-  {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
+
     {
       path: '/login',
       component: Login
@@ -40,10 +34,6 @@ Vue.use(VueRouter)
     {
       path: '/edit',
       component: Edit
-    },
-    {
-      path: '/index',
-      component: Index
     },
     {
       path: '/my',

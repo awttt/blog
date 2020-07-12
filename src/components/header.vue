@@ -44,7 +44,6 @@
     flex-direction: column;
   }
   #footer{
-
     background: rgb(215,215,215);
     font-size: 13px;
     padding: 10px;
@@ -56,7 +55,6 @@
   .btns{
     margin: 20px;
   }
-
   #login{
     display: flex;
     justify-content: space-between;

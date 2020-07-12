@@ -1,28 +1,64 @@
 <template>
-  <div class="index">
-    首页
-    <el-button type="primary" @click="open1">主要按钮</el-button>
+  <div id="index">
+<section class="blog-posts">
+  <div class="item">
+    <figure class="avatar">
+      <div class="img" style="background: red;width: 50px;height: 50px">头像</div>
+      <figcaption >用户名</figcaption>
+    </figure>
+    <div class="xxx">
+      <div class="title">
+        <h3>标题</h3><span>3天前</span>
+      </div>
+      <p>文章内容</p>
+    </div>
+
+  </div>
+</section>
   </div>
 
 </template>
 
 <script>
-  import request from "../helpers/request"
-  import auth from "../api/auth"
-  import blog from "../api/blog"
-  window.request = request
-  window.auth = auth
-  window.blog = blog
-  export default {
-    methods: {
-      open1() {
-        this.$message('这是一条消息提示');
-      },
-    }
-  }
-
 </script>
 
 <style scoped lang="less">
+  #index {
+    border: 1px solid red;
+
+    .blog-posts{
+
+    }
+    .item{
+    display: flex;
+      flex-direction: row;
+    }
+    .title{
+      display: flex;
+      flex-direction: row;
+      margin-left: 0px;
+      span{
+        font-size: 12px;
+        font-weight: normal;
+        margin-top: 27px;
+      }
+    }
+    .xxx{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .avatar{
+      figcaption{
+        font-size: 12px;
+        font-weight: normal;
+        margin-top: 15px;
+      }
+    }
+    .img{
+
+    }
+
+  }
 
 </style>
