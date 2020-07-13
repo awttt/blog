@@ -41,6 +41,7 @@
         font-size: 12px;
         font-weight: normal;
         margin-top: 27px;
+        margin-left: 5px;
       }
     }
     .xxx{
