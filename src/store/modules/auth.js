@@ -26,9 +26,7 @@ export default {
           commit('setLogin',{isLogin:true})
         })
     },
-    // eslint-disable-next-line
     async register({commit},{username, password}) {
-      // eslint-disable-next-line
       let res = await auth.register({username, password})
       commit('setUser',{user:res.data})
       commit('setLogin',{isLogin:true})

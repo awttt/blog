@@ -13,8 +13,18 @@
   <div id="login">
     <h1 class="title">LET'S SHARE</h1>
     <div>
-    <i class="icon el-icon-plus"></i>
-    <i class="icon el-icon-s-custom"></i>
+      <div class="headRight">
+        <router-link to="/create"><i class="icon el-icon-plus" style="color:#2C3E50"></i></router-link>
+      <div class="user">
+        <i class="icon el-icon-s-custom">
+          <ul>
+            <li><router-link to="/my">我的</router-link></li>
+            <li><a href="#" @click="onLogout">注销</a></li>
+          </ul>
+        </i>
+      </div>
+      </div>
+
     </div>
   </div>
 
@@ -69,7 +79,7 @@
 </script>
 
 
-<style>
+<style lang="less">
   #header {
     background: #66B1FF;
     display: flex;
@@ -96,9 +106,44 @@
     width: 2em;
     height: 2em;
     font-size: 30px;
+
   }
   .title{
     margin-left: 50px;
+  }
+  .user {
+    position: relative;
+
+    ul {
+      display: none;
+      position: absolute;
+      right: 0;
+      list-style: none;
+      border: 1px solid #eaeaea;
+      margin:0;
+      padding: 0;
+      background-color: #fff;
+
+      a {
+        text-decoration: none;
+        color: #333;
+        font-size: 12px;
+        display: block;
+        padding: 5px 10px;
+
+        &:hover {
+          background-color: #eaeaea;
+
+        }
+      }
+    }
+    &:hover ul {
+      display: block;
+    }
+  }
+  .headRight{
+    display: flex;
+    flex-direction: row;
   }
 </style>
 
