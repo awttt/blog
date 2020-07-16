@@ -4,8 +4,8 @@
      <h1>LET'S SHARE</h1>
      <p>精品博客汇聚</p>
      <div class="btns">
-     <el-button>立即登录</el-button>
-   <el-button>注册帐号</el-button>
+     <el-button @click="onLogin">立即登录</el-button>
+   <el-button @click="onRegister">注册帐号</el-button>
      </div>
 </template>
 
@@ -25,14 +25,46 @@
 </template>
 
 <script>
+
+  import auth from "../api/auth"
+  window.auth = auth
+
+  import {mapGetters,mapActions} from 'vuex'
+
   export default {
-    data(){
-      return{
-        isLogin:false
+    data() {
+      return {
+      }
+    },
+    computed: {
+      ...mapGetters([
+        'isLogin',
+        'user'
+      ])
+    },
+    created() {
+      this.checkLogin()
+    },
+
+
+    methods: {
+      ...mapActions([
+        'checkLogin',
+        'logout',
+        'login'
+      ]),
+      onLogin(){
+        this.$router.push({path:'/login'})
+      },
+      onRegister(){
+        this.$router.push({path:'/register'})
+      }
+      ,
+      onLogout() {
+        this.logout()
       }
 
     }
-
   }
 </script>
 
