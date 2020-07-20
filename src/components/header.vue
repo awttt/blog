@@ -72,6 +72,7 @@
       ,
       onLogout() {
         this.logout()
+        this.$router.push({path:'/'})
       }
 
     }

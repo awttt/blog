@@ -1,25 +1,71 @@
 <template>
   <div id="index">
 <section class="blog-posts">
-  <div class="item">
+  <router-link class="item" v-for="blog in blogs" :key="blog.id" :to="`/detail/${blog.id}`">
+
     <figure class="avatar">
-      <div class="img" style="background: red;width: 50px;height: 50px">头像</div>
-      <figcaption >用户名</figcaption>
+      <div class="img" style="background: red;width: 50px;height: 50px">
+        头像</div>
+      <figcaption >{{blog.user.username}}</figcaption>
     </figure>
     <div class="xxx">
       <div class="title">
-        <h3>标题</h3><span>3天前</span>
+        <h3>{{blog.title}}</h3><span> {{blog.createdAt}}</span>
       </div>
-      <p>文章内容</p>
+      <p>{{blog.description}}</p>
     </div>
 
-  </div>
+  </router-link>
 </section>
   </div>
 
 </template>
 
 <script>
+  import blog from '@/api/blog.js'
+  import dayjs from "dayjs"
+
+
+
+  export default {
+    data () {
+      return {
+        blogs: [],
+        total: 0,
+        page: 1,
+        createdAt: '',
+      }
+    },
+
+    created() {
+      this.page = parseInt(this.$route.query.page) || 1
+      blog.getIndexBlogs({ page: this.page }).then(res => {
+        console.log(res)
+        this.blogs = res.data
+        blog.createdAt = dayjs(res.data.createdAt).
+        format('YYYY年M月D日')
+        console.log(blog.createdAt )
+        this.total = res.total
+        this.page = res.page
+      })
+
+
+    },
+
+    methods: {
+      onPageChange(newPage) {
+        console.log(newPage)
+        blog.getIndexBlogs({ page: newPage }).then(res => {
+          console.log(res)
+          this.blogs = res.data
+          this.total = res.total
+          this.page = res.page
+          this.$router.push({ path: '/', query: { page: newPage}})
+        })
+      }
+    },
+
+  }
 </script>
 
 <style scoped lang="less">
